@@ -23,5 +23,4 @@ Below is the Vimeo link to watch & listen to video explaining project!
 
 https://vimeo.com/manage/videos/909086772/45a5918c80
 
-<!-- ***embedded code copied & pasted** -->
-<!-- <div style="padding:56.22% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/909086772?h=45a5918c80&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 2/2/2024, 8:35:33 AM"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script> -->
+https://github.com/erinmccarty4/se_project_aroundtheus-main.git

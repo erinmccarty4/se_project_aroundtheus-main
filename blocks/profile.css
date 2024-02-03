@@ -22,6 +22,11 @@
     grid-area: button;
 }
 
+.profile__edit-button:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
 .profile__add-button {
     background: transparent url(../images/add-button.svg) center no-repeat;
     width: 150px;
@@ -31,6 +36,11 @@
     flex-shrink: 0;
     flex-wrap: wrap;
     border-radius: 2px;
+}
+
+.profile__add-button:hover {
+    opacity: 0.5;
+    cursor: pointer;
 }
 
 .profile__title {

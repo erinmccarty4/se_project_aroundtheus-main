@@ -23,4 +23,4 @@ Below is the Vimeo link to watch & listen to video explaining project!
 
 https://vimeo.com/manage/videos/909086772/45a5918c80
 
-https://github.com/erinmccarty4/se_project_aroundtheus-main.git
+https://erinmccarty4.github.io/se_project_aroundtheus-main/

@@ -14,7 +14,6 @@
     "title button"
     "description description";
     grid-template-columns: minmax(auto, 375px) auto;
-    max-width: 375px;
 }
 
 .profile__edit-button {

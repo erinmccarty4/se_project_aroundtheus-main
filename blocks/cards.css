@@ -1,7 +1,5 @@
  .cards {
-  margin-top: 30px;
-  margin-bottom: 67px;
-  text-align: left;
+  padding-top: 30px;
 } 
 
 .cards__list {
@@ -12,4 +10,10 @@
   padding: 0;
   list-style-type: none;
   margin: 0;
+}
+
+@media screen and (max-width: 620px) {
+  .cards {
+    padding-top: 36px;
+  }
 }

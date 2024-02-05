@@ -13,7 +13,8 @@
     grid-template-areas: 
     "title button"
     "description description";
-    grid-template-columns: minmax(auto, 373px) auto;
+    grid-template-columns: minmax(auto, 375px) auto;
+    max-width: 375px;
 }
 
 .profile__edit-button {
@@ -90,17 +91,31 @@
       align-items: center
     }
     
+    .profile__image {
+      margin: 0 auto;
+    }
+
     .profile__info {
       display: flex;
       flex-wrap: wrap;
       width: 100%;
       justify-content: center;
+      margin-top: 30px;
+      column-gap: 10px;
+      margin-left: 0;
     }
     
+    .profile__title {
+      max-width: 196px;
+      line-height: 27px;
+      font-size: 22px;
+    }
+
     .profile__description {
       width: 100%;
       text-align: center;
-    
+      font-size: 14px;
+      line-height: 17px;
     }
     
     .profile__add-button {

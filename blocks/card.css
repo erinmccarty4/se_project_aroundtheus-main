@@ -63,6 +63,6 @@
   transition: opacity 0.2s linear;
 }
 .card__like-button:hover {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: pointer;
 }

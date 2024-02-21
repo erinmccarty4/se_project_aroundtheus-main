@@ -24,6 +24,7 @@ const initialCards = [
         link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg"
     }
     ]; 
+<<<<<<< HEAD
 
 /* -------------------------------------------------------------------------- */
 /*                                  Elements                                  */
@@ -35,3 +36,5 @@ const profileEditModal = document.querySelector("#profile-edit-modal");
 profileEditButton.addEventListener("click", () => {
     profileEditModal.classList.add('modal_opened'); 
 });
+=======
+>>>>>>> 3058c28f556eb60517ba7609362e3f7b61357239

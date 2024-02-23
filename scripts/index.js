@@ -61,7 +61,6 @@ function getCardElement(cardData) {
     cardImageEl.setAttribute("src", cardData.link);
     cardImageEl.setAttribute("alt", cardData.name);
     //set the image alt text to the name field of the object
-    cardImageEl.textContent = cardData.link; 
     //set the card title to the name field of the object, too
     cardTitleEl.textContent = cardData.name;
     //return the ready HTML element with the filled-in data 
@@ -94,16 +93,6 @@ profileEditButton.addEventListener('click', () => {
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 closeEditButton.addEventListener("click", closePopup);
 
-
-
-// open & close edit button//
-profileEditButton.addEventListener("click", () => {
-    profileEditModal.classList.add("modal_opened"); 
-});
-
-closeEditButton.addEventListener("click", () => {
-    profileEditModal.classList.remove("modal_opened"); 
-});
 
 initialCards.forEach((cardData) => {
     const cardElement = getCardElement(cardData);

@@ -52,29 +52,26 @@ const addCardForm = profileAddCardModal.querySelector(".modal__form");
 const cardsWrap = document.querySelectorAll(".cards__list");
 
 const previewImageModal = document.querySelector("#preview-image-modal");
-const previewImageCloseModal = previewImageModal.querySelector("#preview-image-close-modal");
-const previewImageEl = previewImageModal.querySelector(".preview__image-card");
-const previewTitleEl = previewImageModal.querySelector(".preview__image-title");
+const previewModalClose = previewImageModal.querySelector("#preview-modal-close");
 
 
  /* -------------------------------------------------------------------------- */
 /*                                  Functions                                  */
 /* -------------------------------------------------------------------------- */
 
-
 function closePopup(modal) {
     modal.classList.remove("modal_opened");
 }
 
- function openModal (modal) {
-     modal.classList.add("modal_opened");
- }
+function openModal (modal) {
+    modal.classList.add("modal_opened");
+}
 
-//   function closePopup() {
-//     profileEditModal.classList.remove("modal_opened");
-//     profileAddCardModal.classList.remove("modal_opened");
-//     previewImageModal.classList.remove("modal_opened");
-//  };
+   function closePopup() {
+     profileEditModal.classList.remove("modal_opened");
+     profileAddCardModal.classList.remove("modal_opened");
+     previewImageModal.classList.remove("modal_opened");
+  };
 
 
 
@@ -82,6 +79,9 @@ function getCardElement(cardData) {
     const cardElement = cardTemplate.cloneNode(true); 
     const cardImageEl = cardElement.querySelector(".card__image");
     const cardTitleEl = cardElement.querySelector(".card__title");
+    const previewImageEl = document.querySelector(".card__preview-image");
+    const previewNameEl = document.querySelector(".modal__preview-name");
+
     
     cardImageEl.setAttribute("src", cardData.link);
     cardImageEl.setAttribute("alt", cardData.name);
@@ -102,16 +102,22 @@ function getCardElement(cardData) {
       });
     
       cardImageEl.addEventListener("click", () => {
-        previewImageEl.src = cardData.link;
-        previewImageEl.alt = cardData.name;
-        previewTitleEl.textContent = cardData.name;
         openModal(previewImageModal);
+        previewNameEl.textContent = cardData.name;
+        previewImageEl.alt = cardData.name;
+        previewImageEl.src = cardData.link;
       });
     
+    previewModalClose.addEventListener("click", () => closePopup(previewImageModal));
+
+
     return cardElement; 
     }
 
-
+    function renderCard(cardData, wrapper) {
+        const cardElement = getCardElement(cardData);
+        wrapper.prepend(cardElement);
+      }
 /* -------------------------------------------------------------------------- */
 /*                                  Event Handlers                        */
 /* -------------------------------------------------------------------------- */
@@ -146,7 +152,7 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 closeEditButton.addEventListener("click", () => closePopup (profileEditButton));
 
 
-addNewCardButton.addEventListener('click', () => {
+addNewCardButton.addEventListener("click", () => {
     profileAddCardModal.classList.add("modal_opened"); 
 });
 
@@ -154,18 +160,8 @@ addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 addCardModalCloseButton.addEventListener("click", () => closePopup (profileAddCardModal));
 
-
-
-
-
 /* -------------------------------------------------------------------------- */
 /*                                 Initializer                                */
 /* -------------------------------------------------------------------------- */
 
-       initialCards.forEach((cardData) => {
-         const cardElement = getCardElement(cardData);
-          cardListEl.prepend(cardElement);
-        });
-
-
-    // previewImageCloseModal.addEventListener("click", () => closePopup(previewImageModal));
+initialCards.forEach((cardData) => renderCard(cardData, cardListEl));

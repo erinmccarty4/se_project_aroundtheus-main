@@ -91,13 +91,13 @@
   border-radius: 2px;
 }
 
-.preview-image-card {
+.preview__image-card {
   width: 433px;
   height: 540px;
   position: relative;
 }
 
-.preview-image-title {
+.preview__image-title {
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400px;
   font-size: 12px;
@@ -134,5 +134,15 @@
 
   .modal__form {
     margin-top: 53px;
+  }
+
+  .preview__image-card {
+    width: 240px;
+    height: 299px;
+  }
+
+  .preview__image-title {
+    width: 240px;
+    height: 12px;
   }
 }

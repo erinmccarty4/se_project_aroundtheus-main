@@ -126,6 +126,7 @@ function handleAddCardFormSubmit (evt) {
     const name=ModalCardTitleInput.value;
     const link=ModalCardURLInput.value;
     renderCard({name, link}, cardListEl);
+    addCardForm.reset();
     closePopup(profileAddCardModal);
 };
 
@@ -152,16 +153,6 @@ addNewCardButton.addEventListener("click", () => {
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 addCardModalCloseButton.addEventListener("click", () => closePopup (profileAddCardModal));
-
-// find all close buttons
-const closeButtons = document.querySelectorAll(".modal__close");
-
-closeButtons.forEach((button) => {
-  // find the closest popup 
-  const popup = button.closest(".modal__close");
-  // set the listener
-  button.addEventListener('click', () => closePopup(popup));
-});
 
 /* -------------------------------------------------------------------------- */
 /*                                 Initializer                                */

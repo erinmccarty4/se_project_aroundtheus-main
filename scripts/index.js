@@ -44,7 +44,7 @@ const cardListEl = document.querySelector(".cards__list");
 
 const addNewCardButton = document.querySelector(".profile__add-button"); 
 const profileAddCardModal = document.querySelector("#profile-add-modal");
-const addCardModalCloseButton = profileAddCardModal.querySelector("#add-card-modal-close-button");
+const addCardModalCloseButton = profileAddCardModal.querySelector(".modal__close");
 const ModalCardTitleInput = document.querySelector("#add-card-title-input");
 const ModalCardURLInput = document.querySelector("#add-card-url-input");
 
@@ -52,7 +52,7 @@ const addCardForm = profileAddCardModal.querySelector(".modal__form");
 const cardsWrap = document.querySelectorAll(".cards__list");
 
 const previewImageModal = document.querySelector("#preview-image-modal");
-const previewModalClose = previewImageModal.querySelector("#preview-modal-close");
+const previewModalClose = previewImageModal.querySelector(".modal__close");
 
 
  /* -------------------------------------------------------------------------- */
@@ -100,7 +100,7 @@ function getCardElement(cardData) {
         previewImageEl.src = cardData.link;
       });
     
-    previewModalClose.addEventListener("click", () => closePopup(previewImageModal));
+    // previewModalClose.addEventListener("click", () => closePopup(previewImageModal));
 
 
     return cardElement; 
@@ -152,6 +152,16 @@ addNewCardButton.addEventListener("click", () => {
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 addCardModalCloseButton.addEventListener("click", () => closePopup (profileAddCardModal));
+
+// find all close buttons
+const closeButtons = document.querySelectorAll(".modal__close");
+
+closeButtons.forEach((button) => {
+  // find the closest popup 
+  const popup = button.closest(".modal__close");
+  // set the listener
+  button.addEventListener('click', () => closePopup(popup));
+});
 
 /* -------------------------------------------------------------------------- */
 /*                                 Initializer                                */

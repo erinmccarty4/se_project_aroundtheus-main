@@ -45,8 +45,8 @@ const cardListEl = document.querySelector(".cards__list");
 const addNewCardButton = document.querySelector(".profile__add-button"); 
 const profileAddCardModal = document.querySelector("#profile-add-modal");
 const addCardModalCloseButton = profileAddCardModal.querySelector("#add-card-modal-close-button");
-const ModalCardTitleInput = document.querySelector("#add-card-title-input");
-const ModalCardURLInput = document.querySelector("#add-card-url-input");
+const cardTitleForm = document.querySelector("#add-card-title-input");
+const cardLinkForm = document.querySelector("#add-card-url-input");
 
 const addCardForm = profileAddCardModal.querySelector(".modal__form");
 const cardsWrap = document.querySelectorAll(".cards__list");
@@ -120,8 +120,8 @@ function handleProfileEditSubmit (evt) {
 
 function handleAddCardFormSubmit (evt) {
     evt.preventDefault(); 
-    const name=ModalCardTitleInput.value;
-    const link=ModalCardURLInput.value;
+    const name=cardTitleForm.value;
+    const link=cardLinkForm.value;
     renderCard({name, link}, cardListEl);
     addCardForm.reset();
     closePopup(profileAddCardModal);

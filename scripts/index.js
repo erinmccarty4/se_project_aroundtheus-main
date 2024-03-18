@@ -154,6 +154,30 @@ addCardModalCloseButton.addEventListener("click", () => closePopup (profileAddCa
 
 previewModalClose.addEventListener("click", () => closePopup(previewImageModal));
 
+const allModals = document.querySelectorAll(".modal");
+//close popup by clicking on overlay
+allModals.forEach((modal) => {
+    //click evenet for each modal
+    modal.addEventListener("click", (evt) => {
+      //if event target contain modal opened class
+      if (evt.target.classList.contains("modal_opened")) {
+        //removes modal opened class
+        closePopup(modal);
+      }
+    });
+  });
+  
+  //Close with escape click
+  function closeWithEscape(evt) {
+    //if event key is escape
+    if (evt.key === "Escape") {
+      //selecting modal opened class
+      const modalOpened = document.querySelector(".modal_opened");
+      //close popup function
+      closePopup(modalOpened);
+    }
+  }
+
 /* -------------------------------------------------------------------------- */
 /*                                 Initializer                                */
 /* -------------------------------------------------------------------------- */

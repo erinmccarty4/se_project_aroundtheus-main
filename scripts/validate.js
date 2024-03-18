@@ -22,8 +22,7 @@ function checkInputValidity(formEl, inputEl, options) {
 if(!inputEl.validity.valid) {
     return showInputError(formEl, inputEl, options);
 } 
-
-    hideInputError(formEl, inputEl, options);
+hideInputError(formEl, inputEl, options);
 }
 
 
@@ -32,28 +31,26 @@ if(!inputEl.validity.valid) {
   }
 
   //disable
-function setEventListeners (formEl, options) {
-    const { inputSelector } = options;
-    const inputEls = [...formEl.querySelectorAll(inputSelector)];
-    inputEls.forEach((inputEl) => {
-        inputEl.addEventListener("input", (e) => {
-        checkInputValidity (formEl, inputEl, options);
-        toggleButtonState(formEl, inputEls, options);
-          });
-        });
-      }
-// disabled / enabled button
-function toggleButtonState(formEl, inputEls, options) {
-    console.log(formEl, inputEls, options);
-    const button = formEl.querySelector(".modal__button");
-    const hasValidInput = inputEls.every((inputEl) =>
-      checkInputValidity(formEl, inputEl, options.inactiveButtonClass)
-    );
-    if (hasValidInput) {
-      button.classList.remove(options.inactiveButtonClass);
-    } else {
-      button.classList.add(options.inactiveButtonClass);
+  function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
+    if (hasInvalidInput(inputEls)) {
+      submitButton.classList.add(inactiveButtonClass);
+      submitButton.disabled = true;
+      return;
     }
+    submitButton.classList.remove(inactiveButtonClass);
+    submitButton.disabled = false;
+  }
+  
+  function setEventListeners(formEl, options) {
+    const { inputSelector, submitButtonSelector } = options;
+    const inputEls = [...formEl.querySelectorAll(inputSelector)];
+    const submitButton = formEl.querySelector(submitButtonSelector);
+    inputEls.forEach((inputEl) => {
+      inputEl.addEventListener("input", (e) => {
+        checkInputValidity(formEl, inputEl, options);
+        toggleButtonState(inputEls, submitButton, options);
+      });
+    });
   }
 
 function enableValidation(options) {

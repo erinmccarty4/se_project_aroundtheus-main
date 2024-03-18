@@ -16,6 +16,7 @@ function hideInputError(formEl, inputEl, { inputErrorClass, errorClass}) {
     errorMessageEl.textContent = inputEl.validationMessage;
     errorMessageEl.classList.remove(errorClass);
   }
+  
 
 function checkInputValidity(formEl, inputEl, options) {
 if(!inputEl.validity.valid) {

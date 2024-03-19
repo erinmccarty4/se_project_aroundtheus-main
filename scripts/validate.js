@@ -45,6 +45,7 @@ hideInputError(formEl, inputEl, options);
     const { inputSelector, submitButtonSelector } = options;
     const inputEls = [...formEl.querySelectorAll(inputSelector)];
     const submitButton = formEl.querySelector(submitButtonSelector);
+    toggleButtonState(inputEls, submitButton, options);
     inputEls.forEach((inputEl) => {
       inputEl.addEventListener("input", (e) => {
         checkInputValidity(formEl, inputEl, options);

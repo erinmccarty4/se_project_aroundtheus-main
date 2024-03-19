@@ -49,7 +49,7 @@ const cardTitleForm = document.querySelector("#add-card-title-input");
 const cardLinkForm = document.querySelector("#add-card-url-input");
 
 const addCardForm = profileAddCardModal.querySelector(".modal__form");
-const cardsWrap = document.querySelectorAll(".cards__list");
+const cardsWrap = document.querySelector(".cards__list");
 
 const previewImageModal = document.querySelector("#preview-image-modal");
 const previewModalClose = previewImageModal.querySelector("#preview-modal-close");
@@ -133,12 +133,19 @@ function handleAddCardFormSubmit (evt) {
 /* -------------------------------------------------------------------------- */
 
 
+
 profileEditButton.addEventListener('click', () => {
     profileTitleInput.value = profileTitle.textContent;
     profileDescriptionInput.value = profileDescription.textContent;
+    toggleButtonState(
+      [profileTitleInput, profileDescriptionInput],
+      profileEditForm.querySelector(config.submitButtonSelector),
+      config
+    );
     openModal(profileEditModal);
-    // profileEditModal.classList.add("modal_opened"); 
 });
+
+
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 closeEditButton.addEventListener("click", () => closePopup (profileEditModal));

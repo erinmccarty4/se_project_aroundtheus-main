@@ -59,12 +59,16 @@ const previewModalClose = previewImageModal.querySelector("#preview-modal-close"
 /*                                  Functions                                  */
 /* -------------------------------------------------------------------------- */
 
+
+
 function closePopup(modal) {
     modal.classList.remove("modal_opened");
+    document.removeEventListener("keydown", handleEsc);
 }
 
 function openModal (modal) {
     modal.classList.add("modal_opened");
+    document.addEventListener("keydown", handleEsc);
 }
 
 function getCardElement(cardData) {
@@ -174,17 +178,14 @@ allModals.forEach((modal) => {
     });
   });
   
-  //Close with escape click
-  function closeWithEscape(evt) {
-    //if event key is escape
+  function handleEsc(evt) {
+    const modal = document.querySelector(".modal_opened");
     if (evt.key === "Escape") {
-      //selecting modal opened class
-      const modalOpened = document.querySelector(".modal_opened");
-      //close popup function
-      closePopup(modalOpened);
+      closePopup(modal);
     }
   }
-
+  
+  
 /* -------------------------------------------------------------------------- */
 /*                                 Initializer                                */
 /* -------------------------------------------------------------------------- */

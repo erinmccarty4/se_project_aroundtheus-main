@@ -179,8 +179,8 @@ allModals.forEach((modal) => {
   });
   
   function handleEsc(evt) {
-    const modal = document.querySelector(".modal_opened");
-    if (evt.key === "Escape") {
+    if (evt.key === "Escape") { 
+      const modal = document.querySelector(".modal_opened");
       closePopup(modal);
     }
   }
